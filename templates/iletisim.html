@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - Çatlak Analiz AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='iletisim.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Çatlak Analiz AI</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Ana Sayfa</a></li>
+                    <li><a href="{{ url_for('analiz') }}">Analiz Et</a></li>
+                    <li><a href="{{ url_for('hakkimizda') }}">Hakkımızda</a></li>
+                    <li><a href="{{ url_for('iletisim') }}" class="active">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h1 class="fade-in">İletişim</h1>
+            <p class="fade-in">
+                Sorularınız, geri bildirimleriniz veya iş birliği talepleriniz için bizimle iletişime geçmekten çekinmeyin.
+            </p>
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <input type="text" name="name" placeholder="Adınız" required>
+                        <input type="email" name="email" placeholder="E-posta" required>
+                        <textarea name="message" rows="5" placeholder="Mesajınız" required></textarea>
+                        <button type="submit" class="btn">Gönder</button>
+                    </form>
+                </div>
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Bize Ulaşın</h3>
+                    <p><i class="fas fa-envelope"></i> info@catlakanalizai.com</p>
+                    <p><i class="fas fa-phone"></i> +90 555 555 55 55</p>
+                    <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll(".fade-in");
+            elements.forEach(el => {
+                el.style.opacity = 1;
+            });
+        });
+    </script>
+</body>
+</html>

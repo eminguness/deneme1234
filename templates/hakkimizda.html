@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda - Çatlak Analiz AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='hakkimizda.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <!-- Logo -->
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Çatlak Analiz AI</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Ana Sayfa</a></li>
+                    <li><a href="{{ url_for('analiz') }}">Analiz Et</a></li>
+                    <li><a href="{{ url_for('hakkimizda') }}" class="active">Hakkımızda</a></li>
+                    <li><a href="{{ url_for('iletisim') }}">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h1 class="fade-in">Hakkımızda</h1>
+            <p class="slide-in">
+                Çatlak Analiz AI, gelişmiş yapay zeka algoritmaları kullanarak yüzey çatlaklarının tespiti ve analizi konusunda
+                yenilikçi çözümler sunar. Projemiz, endüstriyel süreçlerin iyileştirilmesi, maliyetlerin azaltılması ve kalite kontrol
+                süreçlerinin hızlandırılmasını hedeflemektedir.
+            </p>
+            <p class="slide-in">
+                Vizyonumuz, yapay zeka destekli teknolojilerle endüstriyel problemlere etkin çözümler sunarak sürdürülebilirlik ve
+                verimlilik sağlamak; misyonumuz ise müşterilerimize en doğru ve güvenilir analizleri sunmaktır.
+            </p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2 class="fade-in">Ekibimiz</h2>
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member hover-scale">
+                    <img src="{{ url_for('static', filename='images/fatih_ozkaynak.png') }}" alt="Fatih Özkaynak">
+                    <h3>Fatih Özkaynak</h3>
+                    <p>Proje Yöneticisi</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="team-member hover-scale">
+                    <img src="{{ url_for('static', filename='images/11111111.jpg') }}" alt="Muhammed Emin Güneş">
+                    <h3>Muhammed Emin Güneş</h3>
+                    <p>Yapay Zeka Mühendisi</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="team-member hover-scale">
+                    <img src="{{ url_for('static', filename='images/004b572b-c5b1-4604-a44a-4bc0f5bb6160.jpg') }}" alt="Berkay Can Çam">
+                    <h3>Berkay Can Çam</h3>
+                    <p>Full Stack Developer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline Script -->
+    <script>
+        // Kullanıcı durumu (örnek kullanıcı simülasyonu)
+        const isLoggedIn = false; // Giriş yapmış kullanıcı için true, çıkış yapmamış için false.
+
+        // Giriş ve kullanıcı menüsü
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll(".fade-in, .slide-in");
+            elements.forEach(el => {
+                el.style.opacity = 1;
+            });
+        });
+    </script>
+</body>
+</html>

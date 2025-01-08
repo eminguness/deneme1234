@@ -1,0 +1,243 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+/* Navbar Styles */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0078d7;
+}
+
+.navbar .logo i {
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+.navbar nav ul {
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav ul li {
+    margin: 0 15px;
+}
+
+.navbar nav ul li a {
+    color: #333;
+    font-weight: 600;
+    padding: 8px 15px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+.navbar nav ul li a:hover {
+    background-color: #0078d7;
+    color: #fff;
+}
+
+.navbar nav ul li a.active {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile .btn {
+    background: #0078d7;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.profile .btn:hover {
+    background: #0056b3;
+}
+
+.user-menu {
+    display: none;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #0078d7;
+    cursor: pointer;
+}
+
+.user-menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.user-menu .dropdown a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.user-menu .dropdown a:hover {
+    background: #0078d7;
+    color: white;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* About Section */
+.about {
+    padding: 100px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 3rem;
+    color: #0056b3;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.about p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 10px 0;
+    transform: translateX(-50px);
+    opacity: 0;
+    animation: slideIn 1s forwards;
+}
+
+p:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+/* Team Section */
+.team {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.team h2 {
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 250px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-member img {
+    width: 100%;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    color: #0078d7;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.team-member:hover {
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

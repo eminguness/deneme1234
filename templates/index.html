@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiz Et - Çatlak Analiz AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='analiz.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Çatlak Analiz AI</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}" ">Ana Sayfa</a></li>
+                    <li><a href="{{ url_for('analiz') }}"class="active">Analiz Et</a></li>
+                    <li><a href="{{ url_for('hakkimizda') }}" >Hakkımızda</a></li>
+                    <li><a href="{{ url_for('iletisim') }}">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Analyze Section -->
+    <section class="analyze">
+        <div class="container">
+            <h1>Analiz Et</h1>
+            <p>Resminizi veya videonuzu yükleyerek çatlak analizi sonuçlarını öğrenin.</p>
+            <div class="upload-section">
+                <form id="uploadForm">
+                    <label for="fileUpload" class="upload-label">
+                        <i class="fas fa-upload"></i> Dosya Seçin
+                    </label>
+                    <input type="file" id="fileUpload" name="file" accept="image/*" required>
+                    <div id="previewSection">
+                        <h3></h3>
+                        <img id="imagePreview" src="" alt="Seçilen Resim" style="display:none; max-width: 100%; margin-top: 10px;">
+                    </div>
+                    <button type="submit" class="btn">Analizi Başlat</button>
+                </form>
+            </div>
+            <div id="resultSection" class="result-section">
+                <h2>Analiz Sonuçları</h2>
+                <p>Henüz bir analiz yapılmadı. Lütfen bir dosya yükleyin ve analizi başlatın.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Seçilen dosyayı ekranda önizleme
+        document.getElementById("fileUpload").addEventListener("change", function (e) {
+            const file = e.target.files[0];
+            const previewImage = document.getElementById("imagePreview");
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    previewImage.src = event.target.result;
+                    previewImage.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewImage.style.display = "none";
+            }
+        });
+
+        // Form gönderme işlemi
+        document.getElementById("uploadForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const fileInput = document.getElementById("fileUpload");
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            const resultSection = document.getElementById("resultSection");
+            resultSection.innerHTML = "<p>Analiz yapılıyor...</p>";
+
+            fetch("/upload", {
+                method: "POST",
+                body: formData,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.result_image_url) {
+                        resultSection.innerHTML = `
+                            <h2>Analiz Sonuçları</h2>
+                            <img src="${data.result_image_url}" alt="Analiz Sonucu" style="max-width: 100%;">
+                        `;
+                    } else {
+                        resultSection.innerHTML = `<p>Hata: ${data.error || "Bilinmeyen bir hata oluştu."}</p>`;
+                    }
+                })
+                .catch((error) => {
+                    resultSection.innerHTML = `<p>Hata: ${error.message}</p>`;
+                });
+        });
+    </script>
+</body>
+</html>

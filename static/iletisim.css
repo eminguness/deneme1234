@@ -1,0 +1,261 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+/* Navbar Styles */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0078d7;
+}
+
+.navbar .logo i {
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+.navbar nav ul {
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav ul li {
+    margin: 0 15px;
+}
+
+.navbar nav ul li a {
+    color: #333;
+    font-weight: 600;
+    padding: 8px 15px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+.navbar nav ul li a:hover {
+    background-color: #0078d7;
+    color: #fff;
+}
+
+.navbar nav ul li a.active {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile .btn {
+    background: #0078d7;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.profile .btn:hover {
+    background: #0056b3;
+}
+
+.user-menu {
+    display: none;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #0078d7;
+    cursor: pointer;
+}
+
+.user-menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.user-menu .dropdown a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.user-menu .dropdown a:hover {
+    background: #0078d7;
+    color: white;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact h1 {
+    font-size: 3rem;
+    color: #0056b3;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 10px 0 30px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.2s;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.contact-form {
+    flex: 1;
+    max-width: 500px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #0078d7;
+    outline: none;
+}
+
+.contact-form .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0078d7;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.contact-form .btn:hover {
+    background-color: #0056b3;
+}
+
+.contact-info {
+    flex: 1;
+    max-width: 400px;
+    text-align: left;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    color: #0078d7;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #0078d7;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    color: #0078d7;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #0056b3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çatlak Analiz AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='anasayfa.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Çatlak Analiz AI</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}" class="active">Ana Sayfa</a></li>
+                    <li><a href="{{ url_for('analiz') }}">Analiz Et</a></li>
+                    <li><a href="{{ url_for('hakkimizda') }}">Hakkımızda</a></li>
+                    <li><a href="{{ url_for('iletisim') }}">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="header-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <h1>ÇATLAK<br><span>ANALİZ AI</span></h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque quam molestias dicta, delectus inventore.</p>
+                    <a href="{{ url_for('analiz') }}" class="btn">Analize Git</a>
+                </div>
+                <div class="col-2">
+                    <div class="box">
+                        <video src="{{ url_for('static', filename='images/video.mp4') }}" autoplay muted loop></video>
+                        <img src="{{ url_for('static', filename='images/resim.jpg') }}" alt="Çatlak Analiz Görseli">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
